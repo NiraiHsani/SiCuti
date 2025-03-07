@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   mysql:
-    image: mysql:8
+    image: mysql:8.3
     container_name: mysql_container
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mydatabase
       MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_PASSWORD: MYSQL_PASSWORD
     ports:
       - "3306:3306"
     volumes:
