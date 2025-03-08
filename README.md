@@ -1,5 +1,5 @@
 # <p align="center"> 🚀 Sistem Pengajuan Cuti Mahasiswa</p>
-[ Praktikum Pemrograman Berbasis Framework (PBF). ] {{ FRONT END }}
+[ Praktikum Pemrograman Berbasis Framework (PBF). ] {{ FRONT END & BACK END }}
 
 <p align="center">
 <a href="https://github.com/RevanoAugustofa"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -8,54 +8,27 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## 🔴Prasyarat
+##  Menggunakan Docker Compose
 
-- Pastikan sistem Anda sudah terinstall:
-- PHP >= 8.2
-- Composer
-- Laravel 12 (Proyek Anda sudah dibuat atau di-clone)
+Proyek ini dapat dijalankan menggunakan Docker Compose untuk mengelola kontainer frontend, backend, dan database.
 
-## Setup & Instalasi
+### 🔹 1. Setup Docker dan Docker Compose
 
-1. Clone Repository (Jika Belum Ada)
-```bash 
-git clone https://github.com/user/repo.git
-cd nama-proyek
-```
-2. Instal Dependency PHP
-```bash 
-composer install
-```
-3. Copy File Environment & Generate App Key
-```bash
-cp .env.example .env
-php artisan key:generate
-```
-Sesuaikan konfigurasi di file .env (misalnya, pengaturan database, APP_URL, dll).
+**Instalasi Docker & Docker Compose:**
 
-4. 🫀 Jalankan Migrasi (Jika Proyek Menggunakan Database)
-```bash
-php artisan migrate
-```
+Pastikan Docker dan Docker Compose sudah terinstal:
 
-## Menjalankan Aplikasi
-1. Jalankan Server Laravel Jalankan perintah berikut agar aplikasi berjalan secara lokal:
-```bash
-php artisan serve
-```
-Secara default, aplikasi dapat diakses melalui http://127.0.0.1:8000.
+* **Ubuntu/Debian:**
 
-2. Akses Aplikasi Buka browser dan akses URL di atas.
+    ```bash
+    sudo apt update && sudo apt install docker.io docker-compose -y
+    sudo systemctl enable --now docker
+    ```
 
-## Troubleshooting
-- Masalah Environment: Pastikan file .env sudah dikonfigurasi dengan benar dan APP_KEY telah di-generate.
-- Masalah Database: Pastikan database sudah terkonfigurasi dengan benar di file .env
-- Cache: Jika terjadi masalah, bersihkan cache konfigurasi:
-```bash
-php artisan config:clear
-php artisan cache:clear
-```
+* **Windows (WSL2) & macOS:**
 
-## License
+    Download dari [https://www.docker.com/get-started](https://www.docker.com/get-started)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 🔹 2. Buat Struktur Folder
+
+Buat struktur berikut di dalam project utama:
