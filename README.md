@@ -1,18 +1,15 @@
 # <p align="center">  ❇️ Sistem Pengajuan Cuti Mahasiswa</p>
-[ Praktikum Pemrograman Berbasis Framework (PBF). ] {{ FRONT END & BACK END }}
+[ Praktikum Pemrograman Berbasis Framework (PBF) ] {{ FRONT END & BACK END }}
 
 <p align="center">
-<a href="https://github.com/RevanoAugustofa"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://github.com/NiraiHsani/SiCuti"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 </p>
 
 ##  Menggunakan Docker Compose
 
 Proyek ini dapat dijalankan menggunakan Docker Compose untuk mengelola kontainer frontend, backend, dan database.
 
-###  1. Setup Docker dan Docker Compose
+### 🔅 1. Setup Docker dan Docker Compose
 
 **Instalasi Docker & Docker Compose:**
 
@@ -35,17 +32,16 @@ Buat struktur berikut di dalam project utama:
 
 ```
 project-docker/
-├── backend/        # CodeIgniter Project
-├── frontend/       # Laravel Project
+├── backend/     # CI
+├── frontend/    # Laravel
 ├── docker/
 │   ├── Dockerfile-php
 │   ├── Dockerfile-nginx
-│   ├── my.cnf
-├── .env
+│   ├── default.conf
 ├── docker-compose.yml
 ```
 
-###  3. Setup Docker untuk Backend (CodeIgniter) & Frontend (Laravel)
+### 🔅 3. Setup Docker untuk Backend (CodeIgniter) & Frontend (Laravel)
 
 **1️⃣ Buat Dockerfile-php untuk PHP 8.3**
 
@@ -72,7 +68,7 @@ Buat file `docker/Dockerfile-nginx`:
 
 ```dockerfile
 FROM nginx:latest
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY docker/default.conf /etc/nginx/conf.d/default.conf
 ```
 
 **3️⃣ Buat Konfigurasi Nginx**
@@ -101,7 +97,7 @@ server {
 }
 ```
 
-###  4. Buat docker-compose.yml
+### 🔸 4. Buat docker-compose.yml
 
 Buat file `docker-compose.yml` di dalam `project-docker/`:
 
@@ -170,12 +166,12 @@ volumes:
   mysql_data:
 ```
 
-###  5. Clone Backend (CodeIgniter) & Frontend (Laravel)
+### ▫️ 5. Clone Backend (CodeIgniter) & Frontend (Laravel)
 
 **Clone CodeIgniter Backend:**
 
 ```bash
-git clone [https://github.com/username/codeigniter-backend.git](https://github.com/username/codeigniter-backend.git) backend
+git clone [https://github.com/username/codeigniter-backend.git](link_github_backend) backend
 cd backend
 composer install
 cp env .env
@@ -185,7 +181,7 @@ php artisan key:generate
 **Clone Laravel Frontend:**
 
 ```bash
-git clone [https://github.com/username/laravel-frontend.git](https://github.com/username/laravel-frontend.git) frontend
+git clone [https://github.com/username/laravel-frontend.git](link_github_frontend) frontend
 cd frontend
 composer install
 npm install
@@ -193,15 +189,22 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-###  6. Jalankan Docker Compose
+### ▫️ 6. Jalankan Docker Compose
+
+Buat image : 
+
+
+```bash
+docker compose build --no-cache 
+```
 
 Jalankan semua kontainer:
 
 ```bash
-docker compose up -d --build
+docker compose up -d 
 ```
 
-###  7. Cek Status Kontainer
+### 🔸 7. Cek Status Kontainer
 
 ```bash
 docker ps
@@ -209,8 +212,9 @@ docker ps
 
 Jika semua kontainer berjalan, backend bisa diakses di `http://localhost:8080`, dan frontend bisa diakses di `http://localhost:5173`.
 
-###  8. Upload ke Git
+### 📊 8. Upload ke Git : 
 
+Bila Perlu : 
 Buat `.gitignore` di `project-docker/` untuk menghindari file yang tidak perlu:
 
 ```
@@ -231,7 +235,7 @@ git remote add origin [https://github.com/username/project-docker.git](https://g
 git push -u origin main
 ```
 
-###  9. Cara Menjalankan Setelah Update
+### 🔸 9. Cara Menjalankan Setelah Update
 
 Jika ada perubahan di lokal dan ingin update di VPS:
 
@@ -258,24 +262,7 @@ docker compose restart
 ✅ Setup CodeIgniter (Backend) & Laravel (Frontend) dalam Docker
 ✅ Konfigurasi Docker Compose untuk menjalankan layanan PHP, MySQL, dan Nginx
 ✅ Deploy ke Git dan update ke VPS dengan git pull
- Setelah ini, coba akses backend dan frontend untuk memastikan semuanya berjalan! 
+ Setelah ini, coba akses backend dan frontend untuk memastikan semuanya berjalan!
 
-### Instalasi Composer (Windows)
+**Selamat Mencoba🔸**
 
-Jika Anda menggunakan Windows dan menginstal Composer, Anda mungkin akan melihat tampilan berikut:
-
-```
-Composer Setup
-
-Settings Check
-
-                We need to check your PHP and other settings.
-
-                Choose the command-line PHP you want to use:
-
-                                                                           Browse...
-
-                                                               Back  Next             Cancel
-```
-
-Pada tampilan ini, Anda perlu memilih lokasi file `php.exe` yang akan digunakan oleh Composer. Klik "Browse..." dan navigasikan ke direktori instalasi PHP Anda, lalu pilih `php.exe`. Ini memastikan Composer menggunakan versi PHP yang benar.
